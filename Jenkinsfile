@@ -9,10 +9,10 @@ node('php'){
     }
     
     stage('Docker Build') {
-        sh 'docker build -t tcarnaes/laravel:$BUILD_NUMBER .'
+        sh 'docker build -t tcarnaes/laravel:$BRANCH_NAME-$BUILD_NUMBER .'
     }
     
     stage('Docker Ship') {
-        sh 'docker push tcarnaes/laravel:$BUILD_NUMBER'
+        sh 'docker push tcarnaes/laravel:$BRANCH_NAME-$BUILD_NUMBER'
     }
 }
