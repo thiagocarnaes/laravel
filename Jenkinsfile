@@ -28,5 +28,6 @@ node('php'){
     
     stage('Docker Ship') {
         sh 'docker push tcarnaes/laravel:$BUILD_NUMBER'
+        sh 'docker rmi -f tcarnaes/laravel:$BUILD_NUMBER'
     }
 }
